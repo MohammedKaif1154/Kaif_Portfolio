@@ -1,0 +1,153 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content1 %}
+<style>
+  /* Page Background */
+  body {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Contact Form Container */
+  .col-12 {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .col-12:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Form Heading */
+  h2.text-center {
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff4fd8, #4fffb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  /* Input Fields */
+  .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    box-shadow: inset 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Input Focus Effect */
+  .form-control:focus {
+    outline: none;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 0px 10px rgba(79, 255, 176, 0.7);
+  }
+
+  /* Labels */
+  label {
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ff4fd8;
+  }
+
+  /* Submit Button */
+  .btn-primary {
+    background: linear-gradient(135deg, #ff4fd8, #4fffb0);
+    border: none;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0px 10px 20px rgba(255, 79, 216, 0.5);
+  }
+
+  /* Success & Error Messages */
+  .alert {
+    border-radius: 10px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-align: center;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .col-12 {
+      padding: 20px;
+    }
+
+    h2.text-center {
+      font-size: 28px;
+    }
+
+    .form-control {
+      font-size: 14px;
+    }
+
+    .btn-primary {
+      font-size: 16px;
+    }
+  }
+</style>
+<div class="row my-5">
+  <div class="col-12 col-md-6 offset-md-3">
+    <h2 class="text-center">Contact Us</h2>
+
+    <!-- Display Success or Error Messages -->
+    {% if messages %}
+    <div class="mt-3">
+      {% for message in messages %}
+      <div class="alert alert-{{ message.tags }}" role="alert">
+        {{ message }}
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Contact Form -->
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-group mb-3">
+        <label for="name">Name</label>
+        <input type="text" name="name" class="form-control" id="name" placeholder="Enter your name">
+      </div>
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input type="email" name="email" class="form-control" id="email" placeholder="Enter your email">
+      </div>
+      <div class="form-group mb-3">
+        <label for="phone">Phone</label>
+        <input type="tel" name="phone" class="form-control" id="phone" placeholder="Enter your phone number">
+      </div>
+      <div class="form-group mb-3">
+        <label for="message">Message</label>
+        <textarea name="messsage" class="form-control" id="message" rows="4" placeholder="Write your message"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+  </div>
+</div>
+
+{% endblock content1 %}

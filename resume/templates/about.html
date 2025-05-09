@@ -1,0 +1,206 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content1 %}
+<style>
+  /* Page Background */
+  body {
+    background: #ffffff;
+    color: #1a1a1a;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* About Section */
+  .about-section {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 60px 20px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px rgba(79, 255, 176, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
+  }
+
+  /* About Image Styling */
+  .about_image {
+    width: 250px;
+    height: 250px;
+    border: 5px solid #1a1a1a;
+    border-radius: 50%;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, border-color 0.5s ease;
+    box-shadow: 0px 10px 20px rgba(79, 255, 176, 0.5);
+  }
+
+  .about_image:hover {
+    transform: scale(1.15) rotate(5deg);
+    box-shadow: 0px 15px 30px rgba(79, 255, 176, 0.7);
+    border-color: #1a1a1a;
+  }
+
+  /* Tech Stack Styling */
+  .tech-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+  }
+
+  .tech-icon img {
+    width: 80px;
+    height: 80px;
+    border-radius: 15%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .tech-icon:hover {
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0px 15px 30px rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .tech-icon img:hover {
+    transform: rotate(10deg) scale(1.1);
+  }
+
+  .tech-icon p {
+    margin-top: 10px;
+    color: #1a1a1a;
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.5);
+  }
+
+  /* Heading Styling */
+  h2 {
+    font-weight: bold;
+    text-align: center;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff4fd8, #4fffb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Paragraph Styling */
+  p {
+    line-height: 1.8;
+    font-size: 18px;
+    color: #1a1a1a;
+    text-align: center;
+  }
+
+  /* Button Styling */
+  .about-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+    text-transform: uppercase;
+    border-radius: 50px;
+    background: linear-gradient(90deg, #ff4fd8, #4fffb0);
+    box-shadow: 0px 5px 20px rgba(79, 255, 176, 0.5);
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+  }
+
+  .about-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 30px rgba(255, 79, 216, 0.6);
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .about_image {
+      width: 200px;
+      height: 200px;
+    }
+
+    .tech-icon img {
+      width: 60px;
+      height: 60px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    .about-btn {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  }
+</style>
+<div class="row my-5">
+  <div class="col-12 col-md-4 d-flex justify-content-center align-items-center">
+    <img src="{% static 'images/Kaif.jpeg' %}" alt="Profile Image" class="about_image shadow-lg">
+  </div>
+
+  <div class="col-12 col-md-7 text-light mt-4 mt-md-0">
+    <h2>Hello!</h2>
+    <p class="fs-5">
+      I am a passionate Data Scientist and Web Developer, combining the power of data analytics and modern web technologies to create intelligent, data-driven solutions.
+      From building predictive models to designing seamless user experiences, I thrive at the intersection of AI, machine learning, and web development.
+      Whether it’s uncovering insights from complex datasets or crafting dynamic, responsive web applications, my goal is to bridge data and design to drive innovation and impact
+    </p>
+    <p class="fs-5">
+      As a fresher in Data Science and Web Development, I am constantly learning and evolving to stay ahead of industry trends and emerging technologies.
+      I am passionate about turning data into actionable insights and building intuitive web applications that solve real-world problems.
+      Alongside my journey, I enjoy sharing knowledge by mentoring others in data analytics, machine learning, and full-stack web development.
+      Let’s collaborate to create innovative, data-driven solutions that make an impact!
+    </p>
+  </div>
+</div>
+
+<div class="row my-5">
+  <h2 class="text-center mb-4" style="color:#4fffb0">My Tech Stack</h2>
+
+  <div class="d-flex flex-wrap justify-content-center align-items-center">
+    <div class="tech-icon">
+      <img src="{% static 'images/html.png' %}" alt="HTML Logo" class="img-fluid">
+      <p class="mt-2">HTML</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/css.png' %}" alt="CSS Logo" class="img-fluid">
+      <p class="mt-2">CSS</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/js.png' %}" alt="JavaScript Logo" class="img-fluid">
+      <p class="mt-2">JavaScript</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/python.jpg' %}" alt="Python Logo" class="img-fluid">
+      <p class="mt-2">Python</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/SSSQL.png' %}" alt="SQL Logo" class="img-fluid">
+      <p class="mt-2">SQL</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/download.png' %}" alt="Django Logo" class="img-fluid">
+      <p class="mt-2">Django</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/azure.jpg' %}" alt="Azure Logo" class="img-fluid">
+      <p class="mt-2">Microsoft Azure</p>
+    </div>
+    <div class="tech-icon">
+      <img src="{% static 'images/Power bi.jpg' %}" alt="PowerBI Logo" class="img-fluid">
+      <p class="mt-2">Microsoft PowerBi</p>
+    </div>
+</div>
+{% endblock content1 %}

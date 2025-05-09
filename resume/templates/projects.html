@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content1 %}
+
+<style>
+  /* Project Image Styling */
+  .project-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+  }
+
+  .project-card:hover img {
+    transform: scale(1.1);
+  }
+
+  /* Title Styling */
+  .project-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 15px;
+    color: #ffffff;
+    font-size: 1.2rem;
+    border-radius: 5px;
+  }
+
+  /* Responsive Grid */
+  @media (max-width: 768px) {
+    .project-card img {
+      height: auto;
+    }
+
+    .project-title {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<div class="row my-4">
+  {% for project in projects_show %}
+  <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+    <div class="project-card">
+      <img src="{% static project.path %}" alt="{{ project.title }}" class="img-fluid">
+      <h4 class="project-title">{{ project.title }}</h4>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock content1 %}

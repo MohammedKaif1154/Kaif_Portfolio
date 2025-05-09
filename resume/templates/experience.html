@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content1 %}
+<style>
+  /* Page Background */
+  body {
+    background:#ffffff;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Professional Experience Section */
+  .row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+
+  /* Section Title */
+  h2.text-center {
+    font-weight: bold;
+    font-size: 32px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #ff4fd8, #4fffb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Experience Card Styling */
+  .jumbotron {
+    width: 90%;
+    max-width: 800px;
+    background: linear-gradient(135deg, rgba(50, 50, 50, 0.85), rgba(30, 30, 30, 0.85)); /* Dark Gradient Box */
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: center;
+  }
+
+  /* Hover Effects on Experience Cards */
+  .jumbotron:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 15px 40px rgba(255, 255, 255, 0.2);
+  }
+
+  /* Experience Company Title */
+  h3.display-6 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #4fffb0;
+    text-transform: uppercase;
+    text-shadow: 0px 0px 10px rgba(79, 255, 176, 0.6);
+  }
+
+  /* Experience Details (Position & Duration) */
+  p.lead {
+    font-size: 18px;
+    color: #e0e0e0; /* Light Gray for Better Visibility */
+    margin: 5px 0;
+  }
+
+  p.lead strong {
+    color: #ff4fd8;
+    font-weight: bold;
+  }
+
+  /* Fresher Section */
+  .jumbotron:last-child {
+    background: linear-gradient(135deg, rgba(60, 60, 60, 0.9), rgba(40, 40, 40, 0.9)); /* Darker Gradient */
+  }
+
+  .jumbotron:last-child h2 {
+    font-size: 24px;
+    color: #ff4fd8;
+    text-transform: uppercase;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .jumbotron {
+      width: 95%;
+      padding: 20px;
+    }
+
+    h2.text-center {
+      font-size: 28px;
+    }
+
+    h3.display-6 {
+      font-size: 22px;
+    }
+
+    p.lead {
+      font-size: 16px;
+    }
+  }
+</style>
+<div class="row my-2">
+    <div class="col-12">
+        <h2 class="text-center mt-4">Professional Experience</h2>
+    </div>
+
+    {% for eachitem in experience %}
+        <div class="jumbotron jumbotron-fluid mt-4 p-4 bg-light">
+            <h3 class="display-6">{{ eachitem.company }}</h3>
+            <p class="lead"><strong>Position:</strong> {{ eachitem.position }}</p>
+            <p class="lead"><strong>Duration:</strong> {{ eachitem.duration }}</p>
+        </div>
+    {% endfor %}
+
+    <div class="jumbotron jumbotron-fluid mt-4 p-4 bg-light">
+        <h2 class="display-6">Fresher</h2>
+        <p class="lead">Currently seeking an opportunity to leverage my skills and contribute to the organization's success.</p>
+    </div>
+</div>
+{% endblock content1 %}
